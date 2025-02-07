@@ -1,0 +1,5 @@
+django==4.2.19
+django-environ
+psycopg[binary]
+google-auth==2.38.0
+social-auth-app-django==5.4.2

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google One Tap Example</title>
+</head>
+
+<body>
+  <h1>Google One Tap Example</h1>
+  {% if request.user.is_authenticated %}
+    You are logged in {{ request.user }}
+  {% else %}
+    You are logged out, the One Tap should pop up, if not check your browser's
+    <code>Console</code> tab for errors.
+
+    <div id="g_id_onload"
+      data-client_id="{{ GOOGLE_CLIENT_ID }}"
+      data-login_uri="{% url 'social:complete' 'google-onetap' %}">
+    </div>
+  {% endif %}
+
+  <script src="https://accounts.google.com/gsi/client" async></script>
+</body>
+
+</html>

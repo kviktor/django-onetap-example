@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  django:
+    stdin_open: true
+    build:
+      context: .
+    environment:
+      - DJANGO_SETTINGS_MODULE=example.settings
+      - DATABASE_URL=psql://test:test@postgres:5432/test
+    init: true
+    ports:
+      - "54321:8000"
+    volumes:
+      - .:/var/www/app
